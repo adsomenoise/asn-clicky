@@ -1,9 +1,9 @@
 {
     "name": "asn-clicky",
     "title": "Clicky",
-    "description": "Adding clickTag to Swiffy ,Flash CC or Edge generated files",
+    "description": "Adding clickTag and other goodies to Swiffy ,Flash CC or Edge generated files",
     "homepage": "http://www.adsomenoise.com",
-    "version": "0.2",
+    "version": "1.0.0",
     "author": "Barry Klasbak, Matti",
     "license": "ASN",
     "engines": {
