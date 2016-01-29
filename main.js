@@ -180,6 +180,6 @@ define(function (require, exports, module) {
     var MY_COMMAND_ID = "asn.clicky";   // package-style naming to avoid collisions
     CommandManager.register("Clicky", MY_COMMAND_ID, handleClicky);
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
-    menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-J");
+    menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-Enter");
     
 });
