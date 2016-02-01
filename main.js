@@ -48,7 +48,7 @@ define(function (require, exports, module) {
         files.forEach(function(bestand){
            // alert(EditorManager.canOpenPath(bestand.file._path));
            // console.log(DocumentManager.getOpenDocumentForPath(bestand.file._path));
-           console.log("sjsj");
+           //console.log("sjsj");
         });
 
         
@@ -180,7 +180,7 @@ define(function (require, exports, module) {
     }
     // First, register a command - a UI-less object associating an id to a handler
     var MY_COMMAND_ID = "asn.clicky";   // package-style naming to avoid collisions
-    CommandManager.register("Clicky", MY_COMMAND_ID, init);
+    CommandManager.register("Clicky", MY_COMMAND_ID, handleClicky);
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-Enter");
     
