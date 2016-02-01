@@ -46,11 +46,13 @@ define(function (require, exports, module) {
         var files=DocumentManager.getAllOpenDocuments();
         
         files.forEach(function(bestand){
-            console.log(bestand.file._name);
+           // alert(EditorManager.canOpenPath(bestand.file._path));
+           // console.log(DocumentManager.getOpenDocumentForPath(bestand.file._path));
+           console.log("sjsj");
         });
 
         
-     //   DocumentManager.closeAll();
+
     }
     // Function to run when the menu item is clicked
     function handleClicky() {
@@ -178,7 +180,7 @@ define(function (require, exports, module) {
     }
     // First, register a command - a UI-less object associating an id to a handler
     var MY_COMMAND_ID = "asn.clicky";   // package-style naming to avoid collisions
-    CommandManager.register("Clicky", MY_COMMAND_ID, handleClicky);
+    CommandManager.register("Clicky", MY_COMMAND_ID, init);
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     menu.addMenuItem(MY_COMMAND_ID, "Ctrl-Alt-Enter");
     
