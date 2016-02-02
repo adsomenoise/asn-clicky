@@ -1,11 +1,4 @@
-/*
-CLICKY v0.2.00
-createJS support
-*/
-
 define(function (require, exports, module) {
-    
-    //"use strict";
     
     
     var CommandManager = brackets.getModule("command/CommandManager"),
@@ -48,7 +41,7 @@ define(function (require, exports, module) {
         files.forEach(function(bestand){
            // alert(EditorManager.canOpenPath(bestand.file._path));
            // console.log(DocumentManager.getOpenDocumentForPath(bestand.file._path));
-           //console.log("sjsj");
+           console.log("sjsj");
         });
 
         
@@ -123,17 +116,17 @@ define(function (require, exports, module) {
                 addClickTag(i);
                 i++;
             }
+            //add metaTag
+            if((reHead.exec(lijntje) !== null)&&(!ranOnce)){
+                addMeta(i);
+            }
             //title + clicktag script
             if(lijntje!="<title>AdSomeNoise output<\/title>"){
                 if((reTitle.exec(lijntje)!==null)&&(!ranOnce)){
                      editor.document.replaceRange("\n\n<!-- ASN EDIT -->\n<title>AdSomeNoise output<\/title>\n<script type=\"text\/javascript\">\n  !function(){var a=\"\",i=function(i){try{var n=JSON.parse(i.data)}catch(e){return}if(n.isInitClickTag){if(n.clickTags)for(var c=0;c<n.clickTags.length;c++){var t=n.clickTags[c];window[t.name]=t.url}else n.clickTag&&(window.clickTag=n.clickTag);a=n.relegateNavigation}};open.call&&(window.open=function(i){return function(n,e,c){if(\"parent\"===a){var t={clickTag:n,isPostClickTag:!0};parent.postMessage(JSON.stringify(t),\"*\")}else{var o=[n,e];c&&o.push(c),i.apply(window,o)}}}(window.open)),window.addEventListener?window.addEventListener(\"message\",i,!1):window.attachEvent(\"onmessage\",i)}();var clickTag=\"https:\/\/www.google.com\"; \n<\/script>\n<!-- ASN EDIT -->\n\n", {line: i-1}, {line: i});
                 }
             }
-            //add metaTag
-            if((reHead.exec(lijntje) !== null)&&(!ranOnce)){
-                addMeta(i);   
-                i+=2;
-            }
+
             //ending a-tag (everywhere)
             if((reEnd.exec(lijntje) !== null)&&(!ranOnce)){
                 editor.document.replaceRange("\n  <\/a>", {line: (i - 1) });
