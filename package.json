@@ -3,7 +3,7 @@
     "title": "Clicky",
     "description": "Adding clickTag and other goodies to Swiffy ,Flash CC or Edge generated files",
     "homepage": "http://www.adsomenoise.com",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": "Barry Klasbak, Matti",
     "license": "ASN",
     "engines": {

@@ -18,6 +18,7 @@ define(function (require, exports, module) {
         var m;
         var n;
         var w,h;
+
         for(i=0;i<filenaam.length;i++){            
             if ((m = re.exec(filenaam[i])) !== null) {
                 if (m.index === re.lastIndex) {
@@ -54,6 +55,7 @@ define(function (require, exports, module) {
         var numLines = 200;
         var i;
         var ranOnce=false;
+        var metaDone=false;
         var reTitle = /.*\<title\>.*/;
         var reHead = /.*\<head\>.*/;
         var rehttpSwiff=/.*\<script type="text\/javascript" src="http:.*/;
@@ -72,8 +74,10 @@ define(function (require, exports, module) {
         for (i = 1; i < numLines; i++) {
             
             var lijntje= editor.document.getLine(i);
+                        //add metaTag
+
             if(reSwiffyobject.exec(lijntje)!==null){
-                console.log("found a swiffy!");
+               
                 tmpString=lijntje;
                 lijntje="";
                 tmpLineNumber=i;   
@@ -116,8 +120,8 @@ define(function (require, exports, module) {
                 addClickTag(i);
                 i++;
             }
-            //add metaTag
-            if((reHead.exec(lijntje) !== null)&&(!ranOnce)){
+            if((reHead.exec(lijntje) !== null)&&(!ranOnce)&&(!metaDone)){
+                metaDone=true;
                 addMeta(i);
             }
             //title + clicktag script
@@ -158,15 +162,16 @@ define(function (require, exports, module) {
         var m;
         var n;
         var w,h;
-        for(i=0;i<filenaam.length;i++){            
-            if ((m = re.exec(filenaam[i])) !== null) {
+        for(j=0;j<filenaam.length;j++){            
+            if ((m = re.exec(filenaam[j])) !== null) {
                 if (m.index === re.lastIndex) {
                     re.lastIndex++;
                     n=m[0].split("x");
                     w=n[0];
                     h=n[1];
-                    
-                    editor.document.replaceRange("\n<meta name=\"ad.size\" content=\"width="+w+",height="+h+"\">\n", {line: (i+1)}, {line: (i+1)});
+                   
+
+                   editor.document.replaceRange("\n<meta name=\"ad.size\" content=\"width="+w+",height="+h+"\">\n", {line: (i+1)}, {line: (i+1)});
                 }
             }
         }  
