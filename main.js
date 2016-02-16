@@ -91,7 +91,7 @@ define(function (require, exports, module) {
             //createJS a-tag
             if((reBodyInit.exec(lijntje) !== null)&&(!ranOnce)){
                 addClickTag(i+1);
-                if(lijntje==="<body onload=\"init();\" style=\"background-color:#D4D4D4\">"){
+                if((lijntje==="<body onload=\"init();\" style=\"background-color:#D4D4D4\">")||(lijntje==="<body onload=\"init();\" style=\"background-color:#D4D4D4;margin:0px;\">")){
                     editor.document.replaceRange("\n<body onload=\"init();\" style=\"background-color:#FFFFFF;margin:0;padding:0;\">", {line: i-1},{line: i});
                 }
                 i++;
