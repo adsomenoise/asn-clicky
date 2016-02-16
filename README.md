@@ -15,4 +15,5 @@ This extension has been tested on Swiffy, Edge Animate, Flash CC and Animate CC 
 ## Contributors
 
 Barry Klasbak
+
 Matti
